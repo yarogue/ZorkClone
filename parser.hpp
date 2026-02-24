@@ -1,0 +1,5 @@
+#ifndef ZORKCLONE_PARSER_HPP
+#define ZORKCLONE_PARSER_HPP
+#pragma once
+
+#endif //ZORKCLONE_PARSER_HPP

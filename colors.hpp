@@ -1,0 +1,7 @@
+#ifndef ZORKCLONE_COLORS_HPP
+#define ZORKCLONE_COLORS_HPP
+#pragma once
+
+
+
+#endif //ZORKCLONE_COLORS_HPP
