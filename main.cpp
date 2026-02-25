@@ -29,6 +29,15 @@ void mainLoop()
     while (state.running == true)
     {
         std::string input = readInput();
+        if (hasNumbers(input)) {
+            std::cout << "Please enter words only!" << std::endl;
+            continue;
+        }
+
+        if (input.empty()) {
+            std::cout << "> ?" << input<< std::endl;
+            continue;
+        }
         Command cmd = parseInput(input);
 
         if (cmd.verb == "quit") {
@@ -42,12 +51,9 @@ void mainLoop()
             LookCommand(state, cmd.noun);
         }else if (cmd.verb == "scream") {
             ScreamCommand(state, cmd.noun);
-        }else if (input.empty()) {
-            std::cout << "> ?" << input<< std::endl;
         }else {
             std::cout << "I don't understand that. -> " << input<< std::endl;
         }
-
     }
 }
 

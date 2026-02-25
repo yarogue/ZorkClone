@@ -20,10 +20,10 @@ void LogCommand()
 
 void LookCommand(GameState& state, const std::string& noun)
 {
-    std::cout << "Looking around" << std::endl;
+    //std::cout << "Looking around" << std::endl;
     Room& room = state.rooms[state.player.currentRoom];
 
-    if (noun.empty()) {
+    if (noun.empty() || noun == "around") {
         // print room name
         std::cout << "=== " << room.name << " ===" << std::endl;
         // print room description
@@ -35,14 +35,13 @@ void LookCommand(GameState& state, const std::string& noun)
         }
     }
     /*
-    * else → look at something specific:
+        else → look at something specific:
         {
             // later: search for item matching noun
             // for now just print:
             std::cout << "You don't see '" << noun << "' here." << std::endl;
         }
      */
-
 }
 
 void SmellCommand(GameState& state, const std::string& noun)
@@ -62,5 +61,5 @@ void ListenCommand(GameState& state, const std::string& noun)
 
 void ScreamCommand(GameState& state, const std::string& noun)
 {
-    std::cout << "AAAAAAARGGHH!!" << std::endl;
+    std::cout << "AAAAAAARGGHHh!!!" << std::endl;
 }
