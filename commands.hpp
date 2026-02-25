@@ -13,7 +13,8 @@ void LogCommand();
 
 ///Gameplay commands\\\
 
-void LookCommand();
+void LookCommand(GameState& state, const std::string& noun);
 
+void ScreamCommand(GameState& state, const std::string& noun);
 
 #endif //ZORKCLONE_COMMANDS_HPP

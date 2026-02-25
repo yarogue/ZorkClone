@@ -3,6 +3,7 @@
 #include "types.hpp"
 #include "world.hpp"
 #include  "commands.hpp"
+#include "parser.hpp"
 
 static std::string readInput()
 {
@@ -21,20 +22,26 @@ void mainLoop()
     std::string input;
 
     // print welcome through narrator
-    std::cout << state.narrator[MSG_WELCOME] << std::endl;
     std::cout << state.narrator[MSG_HELP_HINT] << std::endl;
+    std::cout << " " << std::endl;
+    std::cout << state.narrator[MSG_WELCOME] << std::endl;
 
     while (state.running == true)
     {
         std::string input = readInput();
-        if (input == "quit" || input == "q") {
+        Command cmd = parseInput(input);
+
+        if (cmd.verb == "quit") {
+            std::cout << state.narrator[MSG_GOODBYE] << std::endl;
             QuitCommand(state);
-        } else if (input == "help") {
+        } else if (cmd.verb == "help") {
             HelpCommand();
-        } else if (input == "log") {
+        } else if (cmd.verb == "log") {
             LogCommand();
-        }else if (input == "look") {
-            LookCommand();
+        }else if (cmd.verb == "look") {
+            LookCommand(state, cmd.noun);
+        }else if (cmd.verb == "scream") {
+            ScreamCommand(state, cmd.noun);
         }else if (input.empty()) {
             std::cout << "> ?" << input<< std::endl;
         }else {
@@ -53,4 +60,3 @@ int main()
 
     return 0;
 }
-

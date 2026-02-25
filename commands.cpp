@@ -5,7 +5,6 @@
 
 void QuitCommand(GameState& state)
 {
-    std::cout << "Goodbye!" << std::endl;
     state.running = false;
 }
 
@@ -19,7 +18,49 @@ void LogCommand()
     std::cout << "Log" << std::endl;
 }
 
-void LookCommand()
+void LookCommand(GameState& state, const std::string& noun)
 {
     std::cout << "Looking around" << std::endl;
+    Room& room = state.rooms[state.player.currentRoom];
+
+    if (noun.empty()) {
+        // print room name
+        std::cout << "=== " << room.name << " ===" << std::endl;
+        // print room description
+        std::cout << room.description << std::endl;
+        // print exits
+        std::cout << "Exits:";
+        for (int i = 0; i < room.exitCount; i++) {
+            std::cout << " " << room.exits[i].direction << std::endl;
+        }
+    }
+    /*
+    * else → look at something specific:
+        {
+            // later: search for item matching noun
+            // for now just print:
+            std::cout << "You don't see '" << noun << "' here." << std::endl;
+        }
+     */
+
+}
+
+void SmellCommand(GameState& state, const std::string& noun)
+{
+
+}
+
+void TouchCommand(GameState& state, const std::string& noun)
+{
+
+}
+
+void ListenCommand(GameState& state, const std::string& noun)
+{
+
+}
+
+void ScreamCommand(GameState& state, const std::string& noun)
+{
+    std::cout << "AAAAAAARGGHH!!" << std::endl;
 }

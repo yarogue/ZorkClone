@@ -2,8 +2,7 @@
 #define ZORKCLONE_TYPES_HPP
 #pragma once
 #include <string>
-#include <cstdio>
-#include <cstring>
+#include <iostream>
 
 /// Narrator's enum \\\
 
@@ -30,12 +29,25 @@ static constexpr int MAX_EXITS      = 6;
 
 /// Structs \\\
 
+struct Command
+{
+    std::string verb;
+    std::string noun;
+};
+
 struct Item
 {
     ItemID      id;
 
     std::string name;
     std::string description;
+    std::string store;
+    std::string smell;
+    std::string listen;
+    std::string touch;
+    std::string consume;
+    std::string read;
+    std::string observe;
 
     RoomID      location;
 
@@ -51,8 +63,9 @@ struct Player
 
 struct Exit
 {
-    std::string direction;
     RoomID      destination;
+
+    std::string direction;
     std::string requiredItem;
     bool        isLocked;
 };
@@ -63,21 +76,17 @@ struct Room
 
     std::string name;
     std::string description;
+    std::string smell;
+    std::string listen;
 
     Exit        exits[MAX_EXITS];
 
     int         exitCount;
 };
 
-struct Narator
-{
-
-};
-
 struct GameState
 {
     Player      player;
-    Narator     narator;
 
     Room        rooms[MAX_ROOMS];
     Item        items[MAX_ITEMS];
