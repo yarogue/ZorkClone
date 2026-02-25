@@ -4,6 +4,7 @@
 #include "world.hpp"
 #include  "commands.hpp"
 #include "parser.hpp"
+#include "log.hpp"
 
 static std::string readInput()
 {
@@ -19,9 +20,7 @@ void mainLoop()
 
     state.running = true;
     init_world(&state);
-    std::string input;
 
-    // print welcome through narrator
     std::cout << state.narrator[MSG_HELP_HINT] << std::endl;
     std::cout << " " << std::endl;
     std::cout << state.narrator[MSG_WELCOME] << std::endl;
@@ -39,6 +38,7 @@ void mainLoop()
             continue;
         }
         Command cmd = parseInput(input);
+        addToLog(&state, input);
 
         if (cmd.verb == "quit") {
             std::cout << state.narrator[MSG_GOODBYE] << std::endl;
@@ -46,7 +46,7 @@ void mainLoop()
         } else if (cmd.verb == "help") {
             HelpCommand();
         } else if (cmd.verb == "log") {
-            LogCommand();
+            LogCommand(state);
         }else if (cmd.verb == "look") {
             LookCommand(state, cmd.noun);
         }else if (cmd.verb == "scream") {

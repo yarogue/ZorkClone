@@ -14,4 +14,4 @@ std::string cleanNoun(const std::string& noun);
 
 Command parseInput(const std::string& input);
 
-#endif ZORKCLONE_PARSER_HPP
+#endif //ZORKCLONE_PARSER_HPP

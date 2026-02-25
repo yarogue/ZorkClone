@@ -1,5 +1,4 @@
 #include "commands.hpp"
-#include <cstdio>
 #include <iostream>
 #include <string>
 
@@ -13,14 +12,16 @@ void HelpCommand()
     std::cout << "Help" << std::endl;
 }
 
-void LogCommand()
+void LogCommand(GameState& state)
 {
-    std::cout << "Log" << std::endl;
+    std::cout << "=== Command Log ===" << std::endl;
+    for (int i = 0; i < state.logCount; i++) {
+        std::cout << "[" << i << "] " << state.commandLog[i] << std::endl;
+    }
 }
 
 void LookCommand(GameState& state, const std::string& noun)
 {
-    //std::cout << "Looking around" << std::endl;
     Room& room = state.rooms[state.player.currentRoom];
 
     if (noun.empty() || noun == "around") {

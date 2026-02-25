@@ -27,6 +27,8 @@ static constexpr int MAX_ROOMS      = 64;
 static constexpr int MAX_ITEMS      = 128;
 static constexpr int MAX_EXITS      = 6;
 
+static constexpr int MAX_LOG        =12;
+
 /// Structs \\\
 
 struct Command
@@ -92,7 +94,9 @@ struct GameState
     Item        items[MAX_ITEMS];
 
     std::string narrator[MSG_COUNT];
+    std::string commandLog[MAX_LOG];
 
+    int         logCount;
     int         roomCount;
     int         itemCount;
 

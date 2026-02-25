@@ -71,7 +71,7 @@ Command parseInput(const std::string& input)
     else
     {
         cmd.verb = lower.substr(0, position);
-        cmd.noun = input.substr(position + 1);
+        cmd.noun = lower.substr(position + 1);
     }
 
     cmd.noun = cleanNoun(cmd.noun);

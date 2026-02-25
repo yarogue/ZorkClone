@@ -9,12 +9,18 @@ void QuitCommand(GameState& state);
 
 void HelpCommand();
 
-void LogCommand();
+void LogCommand(GameState& state);
 
 ///Gameplay commands\\\
 
 void LookCommand(GameState& state, const std::string& noun);
 
 void ScreamCommand(GameState& state, const std::string& noun);
+
+void SmellCommand(GameState& state, const std::string& noun);
+
+void TouchCommand(GameState& state, const std::string& noun);
+
+void ListenCommand(GameState& state, const std::string& noun);
 
 #endif //ZORKCLONE_COMMANDS_HPP
