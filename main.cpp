@@ -19,7 +19,7 @@ void mainLoop()
     GameState state = {};
 
     state.running = true;
-    init_world(&state);
+    init_world(state);
 
     std::cout << state.narrator[MSG_HELP_HINT] << std::endl;
     std::cout << " " << std::endl;
@@ -38,7 +38,7 @@ void mainLoop()
             continue;
         }
         Command cmd = parseInput(input);
-        addToLog(&state, input);
+        addToLog(state, input);
 
         if (cmd.verb == "quit") {
             std::cout << state.narrator[MSG_GOODBYE] << std::endl;
@@ -59,10 +59,7 @@ void mainLoop()
 
 int main()
 {
-
     // game loop starts here...
-
     mainLoop();
-
     return 0;
 }

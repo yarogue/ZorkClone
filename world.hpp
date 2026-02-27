@@ -3,6 +3,6 @@
 #pragma once
 #include "types.hpp"
 
-void init_world(GameState* state);
+void init_world(GameState& state);
 
 #endif //ZORKCLONE_WORLD_HPP

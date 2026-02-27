@@ -5,6 +5,6 @@
 #include <string>
 #include "types.hpp"
 
-void addToLog(GameState* state, const std::string& input);
+void addToLog(GameState& state, const std::string& input);
 
 #endif //ZORKCLONE_LOG_HPP

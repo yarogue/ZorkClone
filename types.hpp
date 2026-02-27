@@ -103,5 +103,4 @@ struct GameState
     bool        running;
 };
 
-
 #endif //ZORKCLONE_TYPES_HPP

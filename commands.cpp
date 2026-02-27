@@ -10,6 +10,7 @@ void QuitCommand(GameState& state)
 void HelpCommand()
 {
     std::cout << "Help" << std::endl;
+
 }
 
 void LogCommand(GameState& state)
