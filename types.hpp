@@ -28,6 +28,7 @@ static constexpr int MAX_ITEMS      = 128;
 static constexpr int MAX_EXITS      = 6;
 
 static constexpr int MAX_LOG        =12;
+static constexpr int MAX_LOOPS      = 8;
 
 /// Structs \\\
 
@@ -61,6 +62,7 @@ struct Item
 struct Player
 {
     RoomID      currentRoom;
+    std::string nearObject;
 };
 
 struct Exit
@@ -96,11 +98,19 @@ struct GameState
     std::string narrator[MSG_COUNT];
     std::string commandLog[MAX_LOG];
 
+    // TODO: Loop descriptions — change per loop
+    // std::string roomDesc[MAX_LOOPS];
+    // std::string roomSmell[MAX_LOOPS];
+    // std::string roomListen[MAX_LOOPS];
+
     int         logCount;
     int         roomCount;
     int         itemCount;
+    int         loopCount;     // how many times player went through the door
+    int         actionCount;   // total actions (for final score)
 
     bool        running;
+    bool        escaped;       // true when player wins
 };
 
 #endif //ZORKCLONE_TYPES_HPP

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/ZorkClone.dir/main.cpp.o CMakeFiles/ZorkClone.dir/parser.cpp.o CMakeFiles/ZorkClone.dir/commands.cpp.o CMakeFiles/ZorkClone.dir/world.cpp.o CMakeFiles/ZorkClone.dir/log.cpp.o -o ZorkClone 

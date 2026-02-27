@@ -31,7 +31,8 @@ bool isStopWord(const std::string& word) {
         "on",
         "to",
         "with",
-        "into"
+        "into",
+        "from"
     };
 
     for (const std::string& sw : stopWords) {

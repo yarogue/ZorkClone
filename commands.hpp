@@ -23,4 +23,12 @@ void TouchCommand(GameState& state, const std::string& noun);
 
 void ListenCommand(GameState& state, const std::string& noun);
 
+void InventoryCommand(GameState& state, const std::string& noun);
+
+void ReadCommand(GameState& state, const std::string& noun);
+
+void GoCommand(GameState& state, const std::string& noun);
+
+void ExitDoorCommand(GameState& state, const std::string& noun);
+
 #endif //ZORKCLONE_COMMANDS_HPP

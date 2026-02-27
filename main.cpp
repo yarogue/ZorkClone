@@ -19,7 +19,7 @@ void mainLoop()
     GameState state = {};
 
     state.running = true;
-    init_world(state);
+    init_world(&state);
 
     std::cout << state.narrator[MSG_HELP_HINT] << std::endl;
     std::cout << " " << std::endl;
@@ -47,8 +47,16 @@ void mainLoop()
             HelpCommand();
         } else if (cmd.verb == "log") {
             LogCommand(state);
+        } else if (cmd.verb == "inventory") {
+            InventoryCommand(state, cmd.noun);
         }else if (cmd.verb == "look") {
             LookCommand(state, cmd.noun);
+        }else if (cmd.verb == "go" || cmd.verb == "walk" || cmd.verb == "move") {
+            GoCommand(state, cmd.noun);
+        } else if (cmd.verb == "exit" || cmd.verb == "push" || cmd.verb == "open") {
+            ExitDoorCommand(state, cmd.noun);
+        }else if (cmd.verb == "read") {
+            ReadCommand(state, cmd.noun);
         }else if (cmd.verb == "scream") {
             ScreamCommand(state, cmd.noun);
         }else {
