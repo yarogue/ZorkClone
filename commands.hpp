@@ -9,7 +9,11 @@ void QuitCommand(GameState& state);
 
 void HelpCommand();
 
+void CommandsList();
+
 void LogCommand(GameState& state);
+
+void LocationCommand(GameState& state);
 
 ///Gameplay commands\\\
 

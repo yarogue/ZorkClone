@@ -14,6 +14,13 @@ enum NarratorMsg
     MSG_COUNT
 };
 
+enum Position {
+    POS_FRONT_LEFT,   POS_FRONT,   POS_FRONT_RIGHT,    // 0, 1, 2 = top row
+    POS_LEFT,         POS_CENTER,  POS_RIGHT,          // 3, 4, 5 = middle
+    POS_BACK_LEFT,    POS_BACK,    POS_BACK_RIGHT,     // 6, 7, 8 = bottom row
+    POS_COUNT
+};
+
 /// ID types \\\
 
 using ItemID = int;
@@ -62,13 +69,12 @@ struct Item
 struct Player
 {
     RoomID      currentRoom;
-    std::string nearObject;
+    Position    position;
 };
 
 struct Exit
 {
     RoomID      destination;
-
     std::string direction;
     std::string requiredItem;
     bool        isLocked;

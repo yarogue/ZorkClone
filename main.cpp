@@ -45,9 +45,13 @@ void mainLoop()
             QuitCommand(state);
         } else if (cmd.verb == "help") {
             HelpCommand();
+        } else if (cmd.verb == "commands") {
+            CommandsList();
         } else if (cmd.verb == "log") {
             LogCommand(state);
-        } else if (cmd.verb == "inventory") {
+        } else if (cmd.verb == "location" || cmd.verb == "position") {
+            LocationCommand(state);
+        }   else if (cmd.verb == "inventory") {
             InventoryCommand(state, cmd.noun);
         }else if (cmd.verb == "look") {
             LookCommand(state, cmd.noun);
