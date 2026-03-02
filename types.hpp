@@ -21,6 +21,18 @@ enum Position {
     POS_COUNT
 };
 
+
+enum Direction
+{
+    DIR_NORTH,   // towards the exit door (front wall) && default
+    DIR_SOUTH,   // towards the back wall
+    DIR_EAST,    // right wall
+    DIR_WEST,    // left wall
+    DIR_UP,      // ceiling
+    DIR_DOWN,    // floor
+    DIR_COUNT
+};
+
 /// ID types \\\
 
 using ItemID = int;
@@ -70,6 +82,7 @@ struct Player
 {
     RoomID      currentRoom;
     Position    position;
+    Direction   direction;
 };
 
 struct Exit

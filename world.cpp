@@ -72,6 +72,7 @@ void init_world(GameState *state) {
   state->actionCount = 0;
   state->escaped = false;
   state->player.position = POS_CENTER;
+  state->player.direction = DIR_NORTH;  // player starts looking north (towards exit door)
 
   Room(state);
 }

@@ -25,7 +25,7 @@ void mainLoop()
     std::cout << " " << std::endl;
     std::cout << state.narrator[MSG_WELCOME] << std::endl;
 
-    while (state.running == true)
+    do
     {
         std::string input = readInput();
         if (hasNumbers(input)) {
@@ -63,10 +63,18 @@ void mainLoop()
             ReadCommand(state, cmd.noun);
         }else if (cmd.verb == "scream") {
             ScreamCommand(state, cmd.noun);
-        }else {
+        }
+        // ============================================================
+        // TODO STEP I: Wire the "turn" verb here
+        //
+        //  else if (cmd.verb == "turn") {
+        //      Turn(state, cmd.noun);
+        //  }
+        // ============================================================
+        else {
             std::cout << "I don't understand that. -> " << input<< std::endl;
         }
-    }
+    } while (state.running == true);
 }
 
 int main()

@@ -28,6 +28,14 @@ void CommandsList() {
     std::cout << "  smell           - what does it smell like?" << std::endl;
     std::cout << "  listen          - what can you hear?" << std::endl;
     std::cout << "  go <direction>  - move somewhere" << std::endl;
+    std::cout << "  exit            - to exit room ..." << std::endl;
+    // ============================================================
+    // TODO STEP G: Add these lines to the commands list
+    //   std::cout << "  look <dir>      - look north/south/east/west/up/down" << std::endl;
+    //   std::cout << "  look left/right - look relative to facing" << std::endl;
+    //   std::cout << "  turn <dir>      - turn to face a direction" << std::endl;
+    //   std::cout << "  turn left/right - turn relative to facing" << std::endl;
+    // ============================================================
     std::cout << "  take <item>     - pick something up" << std::endl;
     std::cout << "  drop <item>     - put something down" << std::endl;
     std::cout << "  inventory       - check what you carry" << std::endl;
@@ -45,7 +53,22 @@ void LogCommand(GameState& state)
     }
 }
 
-void LocationCommand(GameState& state) {
+//Helper to location command
+
+std::string directionToString(const Direction direction)
+{
+    switch (direction) {
+    case DIR_NORTH: return "North";
+    case DIR_SOUTH: return "South";
+    case DIR_EAST:  return "East";
+    case DIR_WEST:  return "West";
+    case DIR_UP:    return "Up";
+    case DIR_DOWN:  return "Down";
+    default:        return "Unknown";
+    }
+}
+
+void LocationCommand(const GameState& state) {
 
     std::cout << " you are at [X]" << std::endl;
     std::string labels[9] = {
@@ -62,11 +85,229 @@ void LocationCommand(GameState& state) {
     std::cout << "+------------+------------+------------+" << std::endl;
     std::cout << "| " << labels[6] << " | " << labels[7] << " | " << labels[8] << " |" << std::endl;
     std::cout << "+------------+------------+------------+" << std::endl;
+
+    //Direction output
+    std::cout << "Facing: " << directionToString(state.player.direction) << std::endl;
+}
+
+void describeFacing(const GameState& state)
+{
+    Position pos  = state.player.position;
+    Direction dir = state.player.direction;
+
+    if (dir == DIR_UP) {
+        if (pos == POS_FRONT_RIGHT) {
+            std::cout << "You look up. You can see the CCTV camera in the corner." << std::endl;
+        } else {
+            std::cout << "You look up. A bare fluorescent light flickers." << std::endl;
+        }
+        return;
+    }
+    if (dir == DIR_DOWN) {
+        std::cout << "You look down. Cold concrete floor with scattered dust." << std::endl;
+        return;
+    }
+    if (dir == DIR_NORTH) {
+        switch(pos){
+        case POS_CENTER:
+            std::cout << "You see the exit door ahead with a green EXIT sign." << std::endl;
+            break;
+        case POS_FRONT:
+            std::cout << "The exit door is right in front of you." << std::endl;
+            break;
+        case POS_BACK:
+            std::cout << "The exit door is far across the room. I can see  the camera on right top corner" << std::endl;
+            break;
+        default:
+            std::cout << "Nothing to see here ..." << std::endl;
+        }
+    } else if (dir == DIR_SOUTH) {
+        switch (pos)
+        {
+            case POS_CENTER:
+            std::cout << "You see the back wall with door without any handlers" << std::endl;
+            break;
+            case POS_FRONT:
+                std::cout << "You see the chair  in center of room and unaccessible door on back side of room." << std::endl;
+            break;
+        default:
+            std::cout << "Nothing to see here ..." << std::endl;
+        }
+
+    } else if (dir == DIR_EAST) {
+        std::cout << "You see the right wall." << std::endl;
+    } else if (dir == DIR_WEST) {
+        std::cout << "You see the left wall." << std::endl;
+    }
+}
+
+// ============================================================
+// TODO STEP D: describeFacing() — what the player sees in their facing direction
+//
+// void describeFacing(GameState& state)
+// {
+//     Position pos  = state.player.position;
+//     Direction dir = state.player.direction;
+//
+//     // UP and DOWN are the same from every position
+//     if (dir == DIR_UP) {
+//         std::cout << "You look up. A bare fluorescent light flickers." << std::endl;
+//         return;
+//     }
+//     if (dir == DIR_DOWN) {
+//         std::cout << "You look down. Cold concrete floor with scattered dust." << std::endl;
+//         return;
+//     }
+//
+//     // For horizontal directions, describe based on position + direction
+//     // You can start simple and expand later:
+//
+//     if (dir == DIR_NORTH) {
+//         // What's on the NORTH wall from this position?
+//         switch(pos) {
+//             case POS_CENTER:
+//                 cout << "You see the exit door ahead with a green EXIT sign." << endl;
+//                 break;
+//             case POS_FRONT:
+//                 cout << "The exit door is right in front of you." << endl;
+//                 break;
+//             case POS_BACK:
+//                 cout << "The exit door is far across the room." << endl;
+//                 break;
+//             // ... add more positions
+//             default:
+//                 cout << "You see the front wall." << endl;
+//                 break;
+//         }
+//     }
+//     else if (dir == DIR_SOUTH) {
+//         switch(pos) {
+//             case POS_CENTER:
+//                 cout << "Behind you, a second door with no handle." << endl;
+//                 break;
+//             case POS_BACK:
+//                 cout << "The back door is right here. No handle, no way to open." << endl;
+//                 break;
+//             default:
+//                 cout << "You see the back wall." << endl;
+//                 break;
+//         }
+//     }
+//     else if (dir == DIR_EAST) {
+//         switch(pos) {
+//             case POS_CENTER:
+//                 cout << "The right wall. Bare concrete." << endl;
+//                 break;
+//             case POS_RIGHT:
+//                 cout << "You're right at the east wall." << endl;
+//                 break;
+//             default:
+//                 cout << "You see the right wall." << endl;
+//                 break;
+//         }
+//     }
+//     else if (dir == DIR_WEST) {
+//         switch(pos) {
+//             case POS_CENTER:
+//                 cout << "The left wall. Some writings carved into it." << endl;
+//                 break;
+//             case POS_LEFT:
+//                 cout << "You're right at the west wall. Carved writings are visible." << endl;
+//                 break;
+//             default:
+//                 cout << "You see the left wall." << endl;
+//                 break;
+//         }
+//     }
+// }
+// ============================================================
+
+// Helper functions for LookCommand
+
+bool isDirection(const std::string& noun)
+{
+    return (noun == "north" || noun == "south" ||
+            noun == "east"  || noun == "west"  ||
+            noun == "up"    || noun == "down");
+}
+
+Direction toDirection(const std::string& noun)
+{
+    if (noun == "north") return DIR_NORTH;
+    if (noun == "south") return DIR_SOUTH;
+    if (noun == "east")  return DIR_EAST;
+    if (noun == "west")  return DIR_WEST;
+    if (noun == "up")    return DIR_UP;
+    if (noun == "down")  return DIR_DOWN;
+    return DIR_NORTH;  // fallback
+}
+
+Direction rotateClockwise(Direction current)
+{
+    switch (current) {
+    case DIR_NORTH: return DIR_EAST;
+    case DIR_EAST:  return DIR_SOUTH;
+    case DIR_SOUTH: return DIR_WEST;
+    case DIR_WEST:  return DIR_NORTH;
+    default:        return current;
+    }
+}
+Direction rotateCounterClockwise(Direction current)
+{
+    switch (current) {
+    case DIR_NORTH: return DIR_WEST;
+    case DIR_WEST:  return DIR_SOUTH;
+    case DIR_SOUTH: return DIR_EAST;
+    case DIR_EAST:  return DIR_NORTH;
+    default:        return current;
+    }
+}
+Direction rotateOpposite(Direction current)
+{
+    switch (current) {
+    case DIR_NORTH: return DIR_SOUTH;
+    case DIR_SOUTH: return DIR_NORTH;
+    case DIR_EAST:  return DIR_WEST;
+    case DIR_WEST:  return DIR_EAST;
+    default:        return current;
+    }
 }
 
 void LookCommand(GameState& state, const std::string& noun)
 {
     Room& room = state.rooms[state.player.currentRoom];
+
+    if (isDirection(noun))
+    {
+        state.player.direction = toDirection(noun);
+        std::cout << "You turn face to " << noun << "." << std::endl;
+        describeFacing(state);
+        return;
+    }
+
+    if (noun == "right") {
+        state.player.direction = rotateClockwise(state.player.direction);
+        std::cout << "You look to your right." << std::endl;
+        describeFacing(state);
+        return;
+    }
+    if (noun == "left") {
+        state.player.direction = rotateCounterClockwise(state.player.direction);
+        std::cout << "You look to your left." << std::endl;
+        describeFacing(state);
+        return;
+    }
+    if (noun == "forward" || noun == "straight"){
+        std::cout << "You look ahead." << std::endl;
+        describeFacing(state);
+        return;
+    }
+    if (noun == "behind" || noun == "back") {
+        state.player.direction = rotateOpposite(state.player.direction);
+        std::cout << "You look behind you." << std::endl;
+        describeFacing(state);
+        return;
+    }
 
     if (noun.empty() || noun == "around") {
         // General room description
@@ -90,7 +331,7 @@ void LookCommand(GameState& state, const std::string& noun)
             case POS_FRONT_RIGHT:
                 std::cout << "You stand in right front corner of the room. \n" << std::endl;
                 std::cout << "On top CCTV camera is observing the room. \n"
-                             " The red light indicator is blinking ." << std::endl;
+                             "The red light indicator is blinking ." << std::endl;
                 break;
             case POS_BACK:
                 std::cout << "You face the back wall.\n"
@@ -118,14 +359,47 @@ void LookCommand(GameState& state, const std::string& noun)
         // search for item in room or inventory
         for (int i = 0; i < state.itemCount; i++) {
             if (state.items[i].name == noun &&
-                (state.items[i].location == state.player.currentRoom ||
-                 state.items[i].location == INVENTORY)) {
+               (state.items[i].location == state.player.currentRoom ||
+                state.items[i].location == INVENTORY)) {
                 std::cout << state.items[i].description << std::endl;
                 return;
             }
         }
         std::cout << "You don't see '" << noun << "' here." << std::endl;
     }
+}
+
+void Turn(GameState& state, const std::string& noun)
+{
+    // ============================================================
+    // TODO STEP E: Turn command — change facing WITHOUT describing
+    //
+    //   if (noun.empty()) {
+    //       std::cout << "Turn where?" << std::endl;
+    //       return;
+    //   }
+    //
+    //   // Absolute directions: "turn north", "turn south", etc.
+    //   if (isDirection(noun)) {
+    //       state.player.direction = toDirection(noun);
+    //       std::cout << "You turn to face " << directionToString(state.player.direction) << "." << std::endl;
+    //       return;
+    //   }
+    //
+    //   // Relative directions: "turn left", "turn right", "turn around"
+    //   if (noun == "right") {
+    //       state.player.direction = rotateClockwise(state.player.direction);
+    //   } else if (noun == "left") {
+    //       state.player.direction = rotateCounterClockwise(state.player.direction);
+    //   } else if (noun == "around" || noun == "behind") {
+    //       state.player.direction = rotateOpposite(state.player.direction);
+    //   } else {
+    //       std::cout << "Turn where?" << std::endl;
+    //       return;
+    //   }
+    //
+    //   std::cout << "You turn to face " << directionToString(state.player.direction) << "." << std::endl;
+    // ============================================================
 }
 
 void GoCommand(GameState& state, const std::string& noun)
@@ -136,10 +410,47 @@ void GoCommand(GameState& state, const std::string& noun)
     }
 
     int pos = state.player.position;
-    int row = pos / 3;    // 0=back, 1=middle, 2=front
+    int row = pos / 3;    // 0=front, 1=middle, 2=back
     int col = pos % 3;    // 0=left, 1=center, 2=right
     int newPos = -1;
 
+    // ============================================================
+    // TODO STEP F: Make movement RELATIVE to facing direction
+    //
+    // Currently "forward" always means row-1 (towards front wall).
+    // After this change, "forward" means: move in the direction
+    // the player is FACING.
+    //
+    // Write a helper: bool tryMove(int row, int col, Direction dir, int& outNewPos)
+    //   DIR_NORTH: if row > 0 -> outNewPos = (row-1)*3 + col, return true
+    //   DIR_SOUTH: if row < 2 -> outNewPos = (row+1)*3 + col, return true
+    //   DIR_WEST:  if col > 0 -> outNewPos = row*3 + (col-1), return true
+    //   DIR_EAST:  if col < 2 -> outNewPos = row*3 + (col+1), return true
+    //   else return false (hit wall)
+    //
+    // Then replace the if/else chain below with:
+    //
+    //   Direction moveDir;
+    //   if (noun == "forward" || noun == "ahead") {
+    //       moveDir = state.player.direction;   // facing direction
+    //   } else if (noun == "back" || noun == "backward") {
+    //       moveDir = rotateOpposite(state.player.direction);
+    //   } else if (noun == "left") {
+    //       moveDir = rotateCounterClockwise(state.player.direction);
+    //   } else if (noun == "right") {
+    //       moveDir = rotateClockwise(state.player.direction);
+    //   } else {
+    //       std::cout << "You can't go there." << std::endl;
+    //       return;
+    //   }
+    //
+    //   if (!tryMove(row, col, moveDir, newPos)) {
+    //       std::cout << "You can't go that way, there's a wall." << std::endl;
+    //       return;
+    //   }
+    // ============================================================
+
+    // --- CURRENT (non-relative) movement — replace with above ---
     // Forward = row - 1 (up on map)
     if (noun == "forward" || noun == "ahead") {
         if (row > 0) newPos = (row - 1) * 3 + col;
@@ -164,6 +475,7 @@ void GoCommand(GameState& state, const std::string& noun)
         std::cout << "You can't go there." << std::endl;
         return;
     }
+    // --- END of current movement ---
 
     // Block certain positions (e.g., dumpsters at back-left)
     // if (newPos == POS_BACK_LEFT) {
@@ -190,6 +502,7 @@ void ExitDoorCommand(GameState& state, const std::string& noun) {
     state.loopCount++;
     state.actionCount++;
     state.player.position = POS_BACK;   // enter next room from the back door
+    state.player.direction = DIR_NORTH; // look at north when as default
     std::cout << std::endl;
     std::cout << "You exit trough door and it slaps loudly once you enter..." << std::endl;
     std::cout << std::endl;

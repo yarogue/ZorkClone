@@ -13,11 +13,13 @@ void CommandsList();
 
 void LogCommand(GameState& state);
 
-void LocationCommand(GameState& state);
+void LocationCommand(const GameState& state);
 
 ///Gameplay commands\\\
 
 void LookCommand(GameState& state, const std::string& noun);
+
+void Turn(GameState& state, const std::string& noun);
 
 void ScreamCommand(GameState& state, const std::string& noun);
 
@@ -34,5 +36,12 @@ void ReadCommand(GameState& state, const std::string& noun);
 void GoCommand(GameState& state, const std::string& noun);
 
 void ExitDoorCommand(GameState& state, const std::string& noun);
+
+// ============================================================
+// TODO STEP H: Declare the new functions here
+//
+// void Turn(GameState& state, const std::string& noun);
+// void describeFacing(GameState& state);
+// ============================================================
 
 #endif //ZORKCLONE_COMMANDS_HPP
