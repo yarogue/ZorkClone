@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "==Zork clone.==.md",
+                "file": "Room.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "==Zork clone.=="
+              "title": "Room"
             }
           }
         ]
@@ -174,13 +174,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "==Zork clone.==.md",
+                "file": "Room.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ==Zork clone.=="
+              "title": "Outline of Room"
             }
           }
         ],
@@ -203,8 +203,10 @@
   },
   "active": "c2e54113d3e45b2f",
   "lastOpenFiles": [
-    "Loop stack.md",
+    "Help Command.md",
+    "Command.md",
     "==Zork clone.==.md",
+    "Loop stack.md",
     "Back door.md",
     "Anomalies.md",
     "tic toe mini-game.md",
