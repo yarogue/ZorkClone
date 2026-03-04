@@ -1,0 +1,2 @@
+#location 
+The room is where main gameplay happens. Main game purpose is exit this room . The room has two [[Doors]] one in front and other in opposite side . Player will try to exit from this room but will come here again in again . Every thing will be look like same but some details will be different . There small nuances or [[Anomalies]] and changes and if player can track them eventually player will be able to exit .

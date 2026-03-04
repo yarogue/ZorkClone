@@ -1,0 +1,2 @@
+#Doors 
+This one of the [[Doors]] in that stays opposite of [[Exit door]] on back side of [[Room]]. [[Player]] cannot interact with it in contrast of [[Exit door]] this door doesn't have any handler or mechanism to be opened. This door is other side of [[Exit door]] and slaps loudly behind once player enters [[Room]].  This triggers [[Loop]] completed and add 1 to [[Loop stack]]. 

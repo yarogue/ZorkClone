@@ -1,0 +1,2 @@
+#Doors 
+Exit door is heavy metallic door with horizontal push bar . This type of door can be spotted in hotels, restaurants and car parking's in shopping malls .This type of doors usually serve as emergency exits and can be only exited from . On top of this door there green label with writing : "EXIT" on it and small exit logo. There a [[Note]] taped on that door . [[Player]] can take this note read it and put in [[Inventory]] .

@@ -1,0 +1,2 @@
+#Item 
+This is useless piece of paper. in first play text on it  says : "Please don't use this door once you open it alarm will set " . [[Player]] can pick and store it in [[Inventory]]. If player leaves the note it stays taped on [[Exit door]] every [[Loop]]. The text is stays same how ever after few [[Loop]]'s the text will change . And if player take the note after few [[Loop]]'s note will reappear on door and text in both cases will say "Don't look at it". This text will address to one of the [[Anomalies]] in next room which player need to avoid to look at .
