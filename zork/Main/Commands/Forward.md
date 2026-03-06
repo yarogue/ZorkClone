@@ -1,0 +1,2 @@
+#Commands 
+This [[Command]] need to be written after [[Go]] or [[Look]] commands. if player prompt Look forward it will describe things they see in front of them no meter what location they are looking at. Similar with go forward command player will move one cell forward in which direction they are looking except walls. 

@@ -5,43 +5,44 @@
 
 ///General commands\\\
 
-void QuitCommand(GameState& state);
+void QuitCommand(GameState &state);
 
-void HelpCommand();
+void HelpCommand(const GameState &state);
 
 void CommandsList();
 
-void LogCommand(GameState& state);
+void LogCommand(GameState &state);
 
-void LocationCommand(const GameState& state);
+void LocationCommand(const GameState &state);
 
 ///Gameplay commands\\\
 
-void LookCommand(GameState& state, const std::string& noun);
+void LookCommand(GameState &state, const std::string &noun);
 
-void Turn(GameState& state, const std::string& noun);
+void Turn(GameState &state, const std::string &noun);
 
-void ScreamCommand(GameState& state, const std::string& noun);
+void ScreamCommand(GameState &state, const std::string &noun);
 
-void SmellCommand(GameState& state, const std::string& noun);
+void SmellCommand(GameState &state, const std::string &noun);
 
-void TouchCommand(GameState& state, const std::string& noun);
+void TouchCommand(GameState &state, const std::string &noun);
 
-void ListenCommand(GameState& state, const std::string& noun);
+void ListenCommand(GameState &state, const std::string &noun);
 
-void InventoryCommand(GameState& state, const std::string& noun);
+void InventoryCommand(GameState &state, const std::string &noun);
 
-void ReadCommand(GameState& state, const std::string& noun);
+void ReadCommand(GameState &state, const std::string &noun);
 
-void GoCommand(GameState& state, const std::string& noun);
+void GoCommand(GameState &state, const std::string &noun);
 
-void ExitDoorCommand(GameState& state, const std::string& noun);
+void ExitDoorCommand(GameState &state, const std::string &noun);
 
-// ============================================================
-// TODO STEP H: Declare the new functions here
-//
-// void Turn(GameState& state, const std::string& noun);
-// void describeFacing(GameState& state);
-// ============================================================
+void KickCommand(GameState &state, const std::string &noun);
 
-#endif //ZORKCLONE_COMMANDS_HPP
+void TakeCommand(GameState &state, const std::string &noun);
+
+void DropCommand(GameState &state, const std::string &noun);
+
+void DrawCommand(GameState &state, const std::string &noun);
+
+#endif // ZORKCLONE_COMMANDS_HPP

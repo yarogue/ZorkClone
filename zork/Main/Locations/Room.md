@@ -1,0 +1,3 @@
+#location 
+The room is where main game play happens and [[Player]] finds their selves at beginning on [[Chair]].  Main game purpose is exit this [[Room]] . The room has two [[Doors]] one in front the [[Exit door]] and other in opposite side  the [[Back door]]. Player will try to exit from this room but will come here again in again committing [[Loop]] . Every thing will be look like same but some details will be different . There small nuances or [[Anomalies]] and changes and if player can track them eventually player will be able to exit . Player can walk and look around in room having different [[Player interactions]] and have some [[Commentary]]ies about.
+The room can be divided in 9 parts the [[Cell]].

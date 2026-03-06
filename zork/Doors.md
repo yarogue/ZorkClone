@@ -1,2 +1,0 @@
-#Doors
-There two doors in [[Room]] .  One is [[Exit door]] from which player will exit the room and [[Other door]] from where they will enter room again . Both doors stays on opposite side of room and they are actually are the same doors but visual from both sides.

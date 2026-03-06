@@ -1,6 +1,7 @@
 CMakeFiles/ZorkClone.dir/main.cpp.o: \
  /home/timur/cppProjects/ZorkClone/main.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/12/iostream \
+ /home/timur/cppProjects/ZorkClone/commands.hpp \
+ /home/timur/cppProjects/ZorkClone/types.hpp /usr/include/c++/12/iostream \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -152,8 +153,6 @@ CMakeFiles/ZorkClone.dir/main.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/timur/cppProjects/ZorkClone/types.hpp \
- /home/timur/cppProjects/ZorkClone/world.hpp \
- /home/timur/cppProjects/ZorkClone/commands.hpp \
+ /home/timur/cppProjects/ZorkClone/log.hpp \
  /home/timur/cppProjects/ZorkClone/parser.hpp \
- /home/timur/cppProjects/ZorkClone/log.hpp
+ /home/timur/cppProjects/ZorkClone/world.hpp

@@ -1,0 +1,2 @@
+#Item Old wooden chair  is what stays in center of the room and where player starts the game . it some kind of pivot of room . when player restarts game it spawns on that chair . Actions : 1. Player can sit on chair. 2. Player can kick and break chair. From broken chair Player can obtain the [[rusty nail.]] 
+If [[Player interactions]] with [[Chair]] in next [[Loop]] there will be plastic chair instead of wooden one . 

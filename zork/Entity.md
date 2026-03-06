@@ -1,5 +1,0 @@
-#anomaly
-#gameplay 
-
-Main hazard for player . Element that creates horror element for game. The dark entity that lurks in darkness follow the [[Player]] and becomes more encounterable and aggressive if [[Player]] plays reckless. Can be first seen after few [[Loop]]'s spend approximately 5 or 6 . If player completes the [[tic toe mini-game]] successfully they can postpone appearance of [[Entity]]   for few loops more . 
-[[Look ]]at direction is important [[Command]] in game . Player can look sides to search for clues and [[Entity]] is something player cannot [[Look]] at which is opposite of main gameplay . [[Player]] need to avoid to [[Look]] at it and if they does [[Game-Over]] triggers. Mention of [[Entity]] and instruction to not to look at it can be found in [[Note]] after few [[Loop]]'s that taped on [[Exit door]] . 
